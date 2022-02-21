@@ -6,7 +6,7 @@ const CourseCreate = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    await axios.post("http://localhost:4000/courses", {
+    await axios.post("http://courses.com/courses/create", {
       title,
     });
     setTitle("");

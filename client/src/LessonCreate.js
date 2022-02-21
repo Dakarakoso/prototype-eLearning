@@ -6,7 +6,7 @@ const LessonCreate = ({ courseId }) => {
   const onSubmit = async (event) => {
     event.preventDefault();
 
-    await axios.post(`http://localhost:4001/courses/${courseId}/lessons`, {
+    await axios.post(`http://courses.com/courses/${courseId}/lessons`, {
       content,
     });
     setContent("");

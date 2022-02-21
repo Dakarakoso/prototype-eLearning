@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lessons-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lessons
+  template:
+    metadata:
+      labels:
+        app: lessons
+    spec:
+      containers:
+        - name: lessons
+          image: dakarakoso/lessons
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lessons-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: lessons
+  ports:
+    - name: lessons
+      protocol: TCP
+      port: 4001
+      targetPort: 4001

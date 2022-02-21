@@ -22,7 +22,7 @@ app.post("/courses/:id/lessons", async (req, res) => {
   lessonsByCourseId[req.params.id] = lessons;
 
   await axios
-    .post("http://localhost:4005/events", {
+    .post("http://event-bus-srv:4005/events", {
       type: "LessonCreated",
       data: {
         id: lessonId,
@@ -50,7 +50,7 @@ app.post("/events", async (req, res) => {
     lesson.status = status;
 
     await axios
-      .post("http://localhost:4005/events", {
+      .post("http://event-bus-srv:4005/events", {
         type: "LessonUpdated",
         data: {
           id,

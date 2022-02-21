@@ -7,7 +7,7 @@ const CourseList = () => {
   const [courses, setCourses] = useState({});
 
   const fetchData = async () => {
-    const res = await axios.get("http://localhost:4002/courses");
+    const res = await axios.get("http://courses.com/courses");
     // console.log(res.data);
     setCourses(res.data);
   };
